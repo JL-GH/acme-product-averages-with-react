@@ -81,7 +81,7 @@ class Products extends Component {
               productInfo.map( (product, idx) => {
                 return (
                   <div key = {idx}>
-                  <div key={idx} className = 'productDetail'>
+                  <div>
                     <h3>Product:</h3>{` ${product.name}`}
                   </div>
                   <div>
@@ -106,7 +106,7 @@ class Products extends Component {
 
 class Home extends Component {
   render() {
-    const {productInfo, offeringDetails, homePageAvgPrice} = this.props
+    const {productInfo, homePageAvgPrice} = this.props
     return(
       <div>
         <h2>Home</h2>
@@ -122,7 +122,7 @@ class Nav extends Component {
     return (
       <nav>
         <Link to='/home'><div id='home' className={ hash === '#/home' ? 'selected' : '' }>Home</div></Link>
-        <Link to='/products'><div id='product' className={ hash === '#/products' ? 'selected' : '' }>Product</div></Link>
+        <Link to='/products'><div id='product' className={ hash === '#/products' ? 'selected' : '' }>Products</div></Link>
       </nav>
     )
   }
