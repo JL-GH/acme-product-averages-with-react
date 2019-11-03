@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 const root = document.querySelector('#root')
 const { Component } = React
-const { HashRouter, Route, Link} = ReactRouterDOM
+const { HashRouter, Route, Link, Switch} = ReactRouterDOM
 
 const API = 'https://acme-users-api-rev.herokuapp.com/api/'
 
@@ -121,7 +121,7 @@ class Nav extends Component {
     const { hash } = this.props
     return (
       <nav>
-        <Link to='/home'><div id='home' className={ hash === '#/home' ? 'selected' : '' }>Home</div></Link>
+        <Link to='/'><div id='home' className={ hash === '#/' ? 'selected' : '' }>Home</div></Link>
         <Link to='/products'><div id='product' className={ hash === '#/products' ? 'selected' : '' }>Products</div></Link>
       </nav>
     )
@@ -210,8 +210,10 @@ class App extends Component {
       <HashRouter>
          <h1>Acme Product Average React</h1>
          <Route render={ () => <Nav hash={ window.location.hash }/> } />
-         <Route path={ '/home' } render={ () => <Home  productInfo={ this.state.allProdInfo } offeringDetails={ this.state.offeringDetails } homePageAvgPrice={ this.state.homePageAvgPrice }/> }/>
-         <Route path={ '/products' } render={ () => <Products productInfo={ this.state.allProdInfo }/> }/>
+         <Switch>
+          <Route exact path={ '/' } render={ () => <Home  productInfo={ this.state.allProdInfo } offeringDetails={ this.state.offeringDetails } homePageAvgPrice={ this.state.homePageAvgPrice }/> }/>
+          <Route path={ '/products' } render={ () => <Products productInfo={ this.state.allProdInfo }/> }/>
+         </Switch>
       </HashRouter>
     )
   }
