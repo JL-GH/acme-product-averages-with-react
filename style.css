@@ -1,0 +1,24 @@
+h3 {
+  display: inline;
+}
+
+hr {
+  color: black;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.selected {
+  border: solid black 1px;
+}
+
+#home {
+  padding: 1em 2em 1em 2em;
+}
+
+#product {
+  padding: 1em 2em 1em 2em;
+}
